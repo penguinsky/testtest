@@ -3,21 +3,9 @@
 <meta charset="utf-8" />
 <script type="text/javascript">
 
-function onInit() {
-  // Geolocation APIをサポートしているか？
-  if (!navigator.geolocation) {
-    alert("位置情報が利用できません");
-    return;
-  }
-  getLocation();
-}
-
-// 位置情報の取得
-function getLocation() {
-  navigator.geolocation.getCurrentPosition(
-    successCallback, 
-    errorCallback);
-}
+navigator.geolocation.getCurrentPosition(
+  successCallback, 
+  errorCallback);
 
 // 失敗したとき
 function errorCallback() {
@@ -44,4 +32,3 @@ function successCallback(position) {
 </head><body onload="onInit()">
   <div id="msg">現在計測中...</div>
 </body></html>
-
