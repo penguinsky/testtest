@@ -3,18 +3,8 @@
 <meta charset="utf-8" />
 <script type="text/javascript">
 
-navigator.geolocation.getCurrentPosition(
-  successCallback, 
-  errorCallback);
-
-// 失敗したとき
-function errorCallback() {
-  alert("位置情報の取得に失敗しました");
-  return;
-}
-
-// 成功したとき
-function successCallback(position) {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
   var c = position.coords;
   var lat = c.latitude; // 緯度
   var lon = c.longitude; // 経度
@@ -26,9 +16,16 @@ function successCallback(position) {
     "緯度経度: " + lat + "," + lon + "<br>" +
     "高度/誤差/方角/速度: " + alt + "/" + 
     acc + "/" + heading + "/" + speed;
-}
+      },
+      function (e) {
+         alert("位置情報の取得に失敗しました");
+         return;
+      }
+    )
 
 </script>
 </head><body onload="onInit()">
   <div id="msg">現在計測中...</div>
 </body></html>
+
+
