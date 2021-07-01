@@ -1,0 +1,12 @@
+<script>
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        let coords = position.coords
+        document.write(coords.latitude)
+      },
+      function (e) {
+        document.write(e.message)
+      },
+      { enableHighAccuracy: false }
+    )
+</script>
