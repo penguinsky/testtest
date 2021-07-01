@@ -2,7 +2,7 @@
     navigator.geolocation.getCurrentPosition(
       function (position) {
         let coords = position.coords
-        document.write(coords.latitude)
+        location.href = "https://www.google.com/maps/@" + coords.latitude + "," + coords.longitude + ",18z"
       },
       function (e) {
         document.write(e.message)
